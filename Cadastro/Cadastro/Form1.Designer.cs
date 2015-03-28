@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verListaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.genderM = new System.Windows.Forms.RadioButton();
             this.genderF = new System.Windows.Forms.RadioButton();
@@ -70,15 +71,10 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bloodSave = new System.Windows.Forms.Label();
             this.isOk = new System.Windows.Forms.Label();
-            this.nameList = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // nomeBox
@@ -101,10 +97,11 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novoToolStripMenuItem});
+            this.novoToolStripMenuItem,
+            this.verListaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(996, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(760, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,6 +112,13 @@
             this.novoToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.novoToolStripMenuItem.Text = "&Novo";
             this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoClick);
+            // 
+            // verListaToolStripMenuItem
+            // 
+            this.verListaToolStripMenuItem.Name = "verListaToolStripMenuItem";
+            this.verListaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.verListaToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.verListaToolStripMenuItem.Text = "&Lista";
             // 
             // label4
             // 
@@ -132,7 +136,7 @@
             this.genderM.Location = new System.Drawing.Point(6, 8);
             this.genderM.Name = "genderM";
             this.genderM.Size = new System.Drawing.Size(34, 17);
-            this.genderM.TabIndex = 4;
+            this.genderM.TabIndex = 8;
             this.genderM.TabStop = true;
             this.genderM.Text = "M";
             this.genderM.UseVisualStyleBackColor = true;
@@ -143,7 +147,7 @@
             this.genderF.Location = new System.Drawing.Point(46, 8);
             this.genderF.Name = "genderF";
             this.genderF.Size = new System.Drawing.Size(31, 17);
-            this.genderF.TabIndex = 5;
+            this.genderF.TabIndex = 9;
             this.genderF.TabStop = true;
             this.genderF.Text = "F";
             this.genderF.UseVisualStyleBackColor = true;
@@ -154,7 +158,7 @@
             this.genderOutro.Location = new System.Drawing.Point(83, 8);
             this.genderOutro.Name = "genderOutro";
             this.genderOutro.Size = new System.Drawing.Size(51, 17);
-            this.genderOutro.TabIndex = 6;
+            this.genderOutro.TabIndex = 10;
             this.genderOutro.TabStop = true;
             this.genderOutro.Text = "Outro";
             this.genderOutro.UseVisualStyleBackColor = true;
@@ -174,7 +178,7 @@
             this.profBox.MaxLength = 100;
             this.profBox.Name = "profBox";
             this.profBox.Size = new System.Drawing.Size(631, 20);
-            this.profBox.TabIndex = 7;
+            this.profBox.TabIndex = 12;
             // 
             // label6
             // 
@@ -191,7 +195,7 @@
             this.salBox.MaxLength = 50;
             this.salBox.Name = "salBox";
             this.salBox.Size = new System.Drawing.Size(165, 20);
-            this.salBox.TabIndex = 8;
+            this.salBox.TabIndex = 14;
             // 
             // label7
             // 
@@ -208,7 +212,7 @@
             this.statusC.Location = new System.Drawing.Point(72, 7);
             this.statusC.Name = "statusC";
             this.statusC.Size = new System.Drawing.Size(61, 17);
-            this.statusC.TabIndex = 10;
+            this.statusC.TabIndex = 16;
             this.statusC.Text = "Casado";
             this.statusC.UseVisualStyleBackColor = true;
             // 
@@ -219,7 +223,7 @@
             this.statusS.Location = new System.Drawing.Point(6, 7);
             this.statusS.Name = "statusS";
             this.statusS.Size = new System.Drawing.Size(60, 17);
-            this.statusS.TabIndex = 9;
+            this.statusS.TabIndex = 17;
             this.statusS.TabStop = true;
             this.statusS.Text = "Solteiro";
             this.statusS.UseVisualStyleBackColor = true;
@@ -230,7 +234,7 @@
             this.statusA.Location = new System.Drawing.Point(139, 7);
             this.statusA.Name = "statusA";
             this.statusA.Size = new System.Drawing.Size(77, 17);
-            this.statusA.TabIndex = 11;
+            this.statusA.TabIndex = 19;
             this.statusA.Text = "Assexuado";
             this.statusA.UseVisualStyleBackColor = true;
             // 
@@ -250,7 +254,7 @@
             this.NF0.Location = new System.Drawing.Point(4, 7);
             this.NF0.Name = "NF0";
             this.NF0.Size = new System.Drawing.Size(31, 17);
-            this.NF0.TabIndex = 12;
+            this.NF0.TabIndex = 21;
             this.NF0.TabStop = true;
             this.NF0.Text = "0";
             this.NF0.UseVisualStyleBackColor = true;
@@ -261,7 +265,7 @@
             this.NF1.Location = new System.Drawing.Point(41, 7);
             this.NF1.Name = "NF1";
             this.NF1.Size = new System.Drawing.Size(31, 17);
-            this.NF1.TabIndex = 13;
+            this.NF1.TabIndex = 22;
             this.NF1.Text = "1";
             this.NF1.UseVisualStyleBackColor = true;
             // 
@@ -271,7 +275,7 @@
             this.NF3.Location = new System.Drawing.Point(115, 7);
             this.NF3.Name = "NF3";
             this.NF3.Size = new System.Drawing.Size(37, 17);
-            this.NF3.TabIndex = 15;
+            this.NF3.TabIndex = 23;
             this.NF3.Text = "3+";
             this.NF3.UseVisualStyleBackColor = true;
             // 
@@ -281,7 +285,7 @@
             this.NF2.Location = new System.Drawing.Point(78, 7);
             this.NF2.Name = "NF2";
             this.NF2.Size = new System.Drawing.Size(31, 17);
-            this.NF2.TabIndex = 14;
+            this.NF2.TabIndex = 24;
             this.NF2.Text = "2";
             this.NF2.UseVisualStyleBackColor = true;
             // 
@@ -312,7 +316,7 @@
             this.bloodBox.MaxLength = 2;
             this.bloodBox.Name = "bloodBox";
             this.bloodBox.Size = new System.Drawing.Size(47, 21);
-            this.bloodBox.TabIndex = 16;
+            this.bloodBox.TabIndex = 26;
             // 
             // label11
             // 
@@ -328,8 +332,8 @@
             this.addBox.Location = new System.Drawing.Point(79, 335);
             this.addBox.Multiline = true;
             this.addBox.Name = "addBox";
-            this.addBox.Size = new System.Drawing.Size(450, 20);
-            this.addBox.TabIndex = 17;
+            this.addBox.Size = new System.Drawing.Size(470, 20);
+            this.addBox.TabIndex = 30;
             // 
             // label2
             // 
@@ -346,7 +350,7 @@
             this.diaBox.MaxLength = 2;
             this.diaBox.Name = "diaBox";
             this.diaBox.Size = new System.Drawing.Size(23, 20);
-            this.diaBox.TabIndex = 1;
+            this.diaBox.TabIndex = 32;
             // 
             // label10
             // 
@@ -363,7 +367,7 @@
             this.mesBox.MaxLength = 2;
             this.mesBox.Name = "mesBox";
             this.mesBox.Size = new System.Drawing.Size(23, 20);
-            this.mesBox.TabIndex = 2;
+            this.mesBox.TabIndex = 34;
             // 
             // label12
             // 
@@ -380,14 +384,14 @@
             this.anoBox.MaxLength = 4;
             this.anoBox.Name = "anoBox";
             this.anoBox.Size = new System.Drawing.Size(47, 20);
-            this.anoBox.TabIndex = 3;
+            this.anoBox.TabIndex = 36;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(568, 323);
+            this.button1.Location = new System.Drawing.Point(671, 329);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 31);
-            this.button1.TabIndex = 18;
+            this.button1.TabIndex = 37;
             this.button1.Text = "Salvar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Salvar_Click);
@@ -396,7 +400,7 @@
             // 
             this.addSave.AutoSize = true;
             this.addSave.ForeColor = System.Drawing.Color.Red;
-            this.addSave.Location = new System.Drawing.Point(535, 338);
+            this.addSave.Location = new System.Drawing.Point(555, 338);
             this.addSave.Name = "addSave";
             this.addSave.Size = new System.Drawing.Size(19, 13);
             this.addSave.TabIndex = 38;
@@ -491,57 +495,17 @@
             // 
             this.isOk.AutoSize = true;
             this.isOk.ForeColor = System.Drawing.Color.Green;
-            this.isOk.Location = new System.Drawing.Point(597, 307);
+            this.isOk.Location = new System.Drawing.Point(630, 342);
             this.isOk.Name = "isOk";
             this.isOk.Size = new System.Drawing.Size(21, 13);
             this.isOk.TabIndex = 48;
             this.isOk.Text = "Ok";
             // 
-            // nameList
-            // 
-            this.nameList.FormattingEnabled = true;
-            this.nameList.Location = new System.Drawing.Point(762, 31);
-            this.nameList.Name = "nameList";
-            this.nameList.Size = new System.Drawing.Size(222, 329);
-            this.nameList.TabIndex = 49;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(6, 11);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 31);
-            this.button3.TabIndex = 51;
-            this.button3.Text = "Remover";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.removerClick);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Location = new System.Drawing.Point(658, 273);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(98, 82);
-            this.groupBox4.TabIndex = 53;
-            this.groupBox4.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(6, 45);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 31);
-            this.button2.TabIndex = 52;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.editarClick);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 366);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.nameList);
+            this.ClientSize = new System.Drawing.Size(760, 368);
             this.Controls.Add(this.isOk);
             this.Controls.Add(this.bloodSave);
             this.Controls.Add(this.groupBox3);
@@ -586,7 +550,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -625,6 +588,7 @@
         private System.Windows.Forms.TextBox mesBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox anoBox;
+        private System.Windows.Forms.ToolStripMenuItem verListaToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label addSave;
         private System.Windows.Forms.Label salSave;
@@ -636,10 +600,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label bloodSave;
         private System.Windows.Forms.Label isOk;
-        private System.Windows.Forms.ListBox nameList;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button2;
     }
 }
 
