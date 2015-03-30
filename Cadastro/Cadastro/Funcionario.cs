@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Cadastro{
     public static class Global{
         public static Form1 form;
+        public static Funcionario func;
     }
 
     public class Funcionario{

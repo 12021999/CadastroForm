@@ -7,3 +7,12 @@ C:\Users\Matheus.barros\Desktop\CadastroBacaninha\Cadastro\Cadastro\obj\Debug\Ca
 C:\Users\Matheus.barros\Desktop\CadastroBacaninha\Cadastro\Cadastro\obj\Debug\Cadastro.csproj.GenerateResource.Cache
 C:\Users\Matheus.barros\Desktop\CadastroBacaninha\Cadastro\Cadastro\obj\Debug\Cadastro.exe
 C:\Users\Matheus.barros\Desktop\CadastroBacaninha\Cadastro\Cadastro\obj\Debug\Cadastro.pdb
+C:\Users\Matheus.barros\Documents\GitHub\CadastroForm\Cadastro\Cadastro\bin\Debug\Cadastro.exe.config
+C:\Users\Matheus.barros\Documents\GitHub\CadastroForm\Cadastro\Cadastro\obj\Debug\Cadastro.exe
+C:\Users\Matheus.barros\Documents\GitHub\CadastroForm\Cadastro\Cadastro\obj\Debug\Cadastro.pdb
+C:\Users\Matheus.barros\Documents\GitHub\CadastroForm\Cadastro\Cadastro\bin\Debug\Cadastro.exe
+C:\Users\Matheus.barros\Documents\GitHub\CadastroForm\Cadastro\Cadastro\bin\Debug\Cadastro.pdb
+C:\Users\Matheus.barros\Documents\GitHub\CadastroForm\Cadastro\Cadastro\obj\Debug\Cadastro.csprojResolveAssemblyReference.cache
+C:\Users\Matheus.barros\Documents\GitHub\CadastroForm\Cadastro\Cadastro\obj\Debug\Cadastro.Form1.resources
+C:\Users\Matheus.barros\Documents\GitHub\CadastroForm\Cadastro\Cadastro\obj\Debug\Cadastro.Properties.Resources.resources
+C:\Users\Matheus.barros\Documents\GitHub\CadastroForm\Cadastro\Cadastro\obj\Debug\Cadastro.csproj.GenerateResource.Cache

@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 namespace Cadastro{
     public partial class Form1 : Form{
         public List<Funcionario> funcionarios = new List<Funcionario>();
-       
+
         string genderText;
         string filhoText;
         string statusText;
@@ -25,6 +25,14 @@ namespace Cadastro{
             System.IO.Directory.CreateDirectory(pathname);
             Environment.CurrentDirectory = pathname;
             Global.form = this;
+            string[] allLines = System.IO.File.ReadAllLines(pathname + @"\Index.txt");
+            for (int i = 0; i < allLines.Length; i++){
+                if (allLines[i].Contains('|')){
+                    funcionarios.Add(new Funcionario());
+                    funcionarios[i].fromString(allLines[i]);
+                    nameList.Items.Add(funcionarios[i].nome);
+                }
+            }
         }
 
         public void Salvar_Click(object sender, EventArgs e){
@@ -92,8 +100,6 @@ namespace Cadastro{
                 f.add = addBox.Text;
 
                 funcionarios.Add(f);
-                Console.WriteLine(funcionarios.Count);
-                Console.WriteLine(funcionarios[0]);
 
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(pathname + @"\Index.txt", true)){
                     file.WriteLine(f.asString());
@@ -139,38 +145,13 @@ namespace Cadastro{
             NF2.Checked = false;
             NF3.Checked = false;
 
-            if (nameList.Items.Contains("<Novo>")){}
-            else{nameList.Items.Add("<Novo>");}
-            
-        }
-
-        /*
-        string[] allLines = System.IO.File.ReadAllLines(pathname  + @"\Index.txt");
-
-        using (System.IO.StreamWriter file = new System.IO.StreamWriter(pathname  + @"\Index.txt"))
-        {
-            foreach (string line in allLines)
-            {
-                if (nameList.SelectedIndex == -1)
-                {
-                    nameList.SelectedIndex = 0;
-                }
-
-                string nominho = nameList.Items[nameList.SelectedIndex] as String;
-
-                if (line.Contains(nominho))
-                {
-                    pessoa.fromString(line);
-                }
+            if (nameList.Items.Contains("<Novo>")){
+            }else{
+                nameList.Items.Add("<Novo>");
+                nameList.SelectedIndex = nameList.Items.Count - 1;
             }
-        }
             
-        using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\potato.txt", true)){
-            file.WriteLine(text);
         }
-
-        string text2 = System.IO.File.ReadAllText(@"C:\");
-        string[] lines2 = System.IO.File.ReadAllLines(@"C:\");*/
 
         public void loadPerson(string[] info){
             nomeBox.Text = info[0].ToString();
@@ -246,9 +227,16 @@ namespace Cadastro{
                 string thisname = Convert.ToString(nameList.Items[nameList.SelectedIndex]);
                 nameList.Items.RemoveAt(nameList.SelectedIndex);
                 string[] allLines = System.IO.File.ReadAllLines(pathname + @"\Index.txt");
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(pathname + @"\Index.txt", false)){
+                    file.WriteLine("");
+                }
                 foreach (string line in allLines){
                     if (line.Contains(thisname)){
-                        line.Split();
+                        continue;
+                    }else{
+                        using (System.IO.StreamWriter file = new System.IO.StreamWriter(pathname + @"\Index.txt",true)){
+                            file.WriteLine(line);
+                        }
                     }
                 }
             }
@@ -281,48 +269,36 @@ namespace Cadastro{
                         genderOutro.Checked = true;
                     }
 
-                    if (pessoa.status.Equals("Solteiro"))
-                    {
+                    if (pessoa.status.Equals("Solteiro")){
                         statusS.Checked = true;
                         statusA.Checked = false;
                         statusC.Checked = false;
-                    }
-                    else if (pessoa.status.Equals("Casado"))
-                    {
+                    }else if (pessoa.status.Equals("Casado")){
                         statusS.Checked = false;
                         statusA.Checked = true;
                         statusC.Checked = false;
-                    }
-                    else if (pessoa.status.Equals("Assexuado"))
-                    {
+                    }else if (pessoa.status.Equals("Assexuado")){
                         statusS.Checked = false;
                         statusA.Checked = false;
                         statusC.Checked = true;
                     }
 
-                    if (pessoa.NF.Equals("0 filhos"))
-                    {
+                    if (pessoa.NF.Equals("0 filhos")){
                         NF0.Checked = true;
                         NF1.Checked = false;
                         NF2.Checked = false;
                         NF3.Checked = false;
-                    }
-                    else if (pessoa.NF.Equals("1 filho"))
-                    {
+                    }else if (pessoa.NF.Equals("1 filho")){
                         NF0.Checked = false;
                         NF1.Checked = true;
                         NF2.Checked = false;
                         NF3.Checked = false;
-                    }
-                    else if (pessoa.NF.Equals("2 filhos"))
-                    {
+                    }else if (pessoa.NF.Equals("2 filhos")){
                         NF0.Checked = false;
                         NF1.Checked = false;
                         NF2.Checked = true;
                         NF3.Checked = false;
-                    }
-                    else if (pessoa.NF.Equals("3+ filhos"))
-                    {
+                    }else if (pessoa.NF.Equals("3+ filhos")){
                         NF0.Checked = false;
                         NF1.Checked = false;
                         NF2.Checked = false;
