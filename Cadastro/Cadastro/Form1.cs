@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Cadastro{
     public partial class Form1 : Form{
@@ -23,15 +24,27 @@ namespace Cadastro{
             InitializeComponent();
             pathname = @"C:\Cadastro";
             System.IO.Directory.CreateDirectory(pathname);
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(pathname + @"\Index.txt", true)){file.WriteLine("");}
             Environment.CurrentDirectory = pathname;
             Global.form = this;
-            string[] allLines = System.IO.File.ReadAllLines(pathname + @"\Index.txt");
+            string[] allLines;
+            try{
+                allLines = File.ReadAllLines(pathname + @"\Index.txt");
+            }catch{
+                allLines = new string[1];
+            }
+            File.Delete(pathname + @"\Index.txt");
             for (int i = 0; i < allLines.Length; i++){
-                if (allLines[i].Contains('|')){
-                    funcionarios.Add(new Funcionario());
-                    funcionarios[i].fromString(allLines[i]);
-                    nameList.Items.Add(funcionarios[i].nome);
+                if (allLines[i] != null && !allLines[i].Contains('|')){
+                    continue;
+                }else if (allLines[i] != null && allLines[i].Contains('|')){
+                    using (StreamWriter file = new StreamWriter(pathname + @"\Index.txt", true)){file.WriteLine(allLines[i]);}
+                    try{
+                        funcionarios.Add(new Funcionario());
+                        funcionarios[i].fromString(allLines[i]);
+                        nameList.Items.Add(funcionarios[i].nome);
+                    }catch{
+                        Console.WriteLine("Erro!");
+                    }
                 }
             }
         }
@@ -40,6 +53,7 @@ namespace Cadastro{
             bool ok = true;
             nomeBox.Text = Regex.Replace(Convert.ToString(nomeBox.Text), "(?i)[^a-z À-ÿ]", "");
             profBox.Text = Regex.Replace(Convert.ToString(profBox.Text), "(?i)[^a-z À-ÿ]", "");
+            addBox.Text = Regex.Replace(Convert.ToString(addBox.Text), "(?i)[^a-z0-9 À-ÿ]", "");
             diaBox.Text = Regex.Replace(Convert.ToString(diaBox.Text), "[^0-9]", "");
             mesBox.Text = Regex.Replace(Convert.ToString(mesBox.Text), "[^0-9]", "");
             anoBox.Text = Regex.Replace(Convert.ToString(anoBox.Text), "[^0-9]", "");
@@ -102,17 +116,40 @@ namespace Cadastro{
 
                 funcionarios.Add(f);
 
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(pathname + @"\Index.txt", true)){
-                    file.WriteLine(f.asString());
-                }
-
                 if (nameList.SelectedIndex == -1){
                     nameList.Items.Add("<Novo>");
                     nameList.SelectedIndex = 0;
                 }
+
+                bool hadPrevious = false;
+                string[] allLines;
+                try{
+                    allLines = System.IO.File.ReadAllLines(pathname + @"\Index.txt");
+                }catch{
+                    allLines = new string[1];
+                }
+                File.Delete(pathname + @"\Index.txt");
+                foreach (string line in allLines){
+                    if (Convert.ToString(nameList.Items[nameList.SelectedIndex]) != "<Novo>" && line.Contains(Convert.ToString(nameList.Items[nameList.SelectedIndex]))){
+                        using (StreamWriter file = new StreamWriter(pathname + @"\Index.txt", true)){
+                            file.WriteLine(f.asString());
+                        }
+                        hadPrevious = true;
+                    }else{
+                        using (StreamWriter file = new StreamWriter(pathname + @"\Index.txt", true)){
+                            file.WriteLine(line);
+                        }
+                    }
+                }
+                if (!(!(!hadPrevious))){ //Hehe :3
+                    using (StreamWriter file = new StreamWriter(pathname + @"\Index.txt", true)){
+                        file.WriteLine(f.asString());
+                    }
+                }
+
                 nameList.Items[nameList.SelectedIndex] = f.nome;                
             }else{
-                Console.WriteLine("Erro");
+                Console.WriteLine("Erro!");
             }
         }
 
@@ -228,14 +265,12 @@ namespace Cadastro{
                 string thisname = Convert.ToString(nameList.Items[nameList.SelectedIndex]);
                 nameList.Items.RemoveAt(nameList.SelectedIndex);
                 string[] allLines = System.IO.File.ReadAllLines(pathname + @"\Index.txt");
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(pathname + @"\Index.txt", false)){
-                    file.WriteLine("");
-                }
+                File.Delete(pathname + @"\Index.txt");
                 foreach (string line in allLines){
                     if (line.Contains(thisname)){
                         continue;
                     }else{
-                        using (System.IO.StreamWriter file = new System.IO.StreamWriter(pathname + @"\Index.txt",true)){
+                        using (StreamWriter file = new StreamWriter(pathname + @"\Index.txt",true)){
                             file.WriteLine(line);
                         }
                     }
