@@ -23,6 +23,7 @@ namespace Cadastro{
             InitializeComponent();
             pathname = @"C:\Cadastro";
             System.IO.Directory.CreateDirectory(pathname);
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(pathname + @"\Index.txt", true)){file.WriteLine("");}
             Environment.CurrentDirectory = pathname;
             Global.form = this;
             string[] allLines = System.IO.File.ReadAllLines(pathname + @"\Index.txt");
