@@ -40,7 +40,7 @@ namespace Cadastro{
                     using (StreamWriter file = new StreamWriter(pathname + @"\Index.txt", true)){file.WriteLine(allLines[i]);}
                     try{
                         funcionarios.Add(new Funcionario());
-                        funcionarios[i].fromString(allLines[i]);
+                        funcionarios[funcionarios.Count - 1].fromString(allLines[i]);
                         nameList.Items.Add(funcionarios[i].nome);
                     }catch{
                         Console.WriteLine("Erro!");
@@ -266,12 +266,13 @@ namespace Cadastro{
                 nameList.Items.RemoveAt(nameList.SelectedIndex);
                 string[] allLines = System.IO.File.ReadAllLines(pathname + @"\Index.txt");
                 File.Delete(pathname + @"\Index.txt");
-                foreach (string line in allLines){
-                    if (line.Contains(thisname)){
+                for (int i = 0; i < allLines.Length; ++i){
+                    if (allLines[i].Contains(thisname)){
+                        funcionarios.RemoveAt(i);
                         continue;
                     }else{
                         using (StreamWriter file = new StreamWriter(pathname + @"\Index.txt",true)){
-                            file.WriteLine(line);
+                            file.WriteLine(allLines[i]);
                         }
                     }
                 }
